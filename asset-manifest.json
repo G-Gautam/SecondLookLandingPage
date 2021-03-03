@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/G-Gautam/SecondLookLandingPage/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/G-Gautam/SecondLookLandingPage/static/js/main.9fa1c34e.chunk.js",
+    "main.js.map": "/G-Gautam/SecondLookLandingPage/static/js/main.9fa1c34e.chunk.js.map",
+    "runtime-main.js": "/G-Gautam/SecondLookLandingPage/static/js/runtime-main.6094a6d3.js",
+    "runtime-main.js.map": "/G-Gautam/SecondLookLandingPage/static/js/runtime-main.6094a6d3.js.map",
+    "static/js/2.75374dc1.chunk.js": "/G-Gautam/SecondLookLandingPage/static/js/2.75374dc1.chunk.js",
+    "static/js/2.75374dc1.chunk.js.map": "/G-Gautam/SecondLookLandingPage/static/js/2.75374dc1.chunk.js.map",
+    "static/js/3.b515b1a1.chunk.js": "/G-Gautam/SecondLookLandingPage/static/js/3.b515b1a1.chunk.js",
+    "static/js/3.b515b1a1.chunk.js.map": "/G-Gautam/SecondLookLandingPage/static/js/3.b515b1a1.chunk.js.map",
+    "index.html": "/G-Gautam/SecondLookLandingPage/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/G-Gautam/SecondLookLandingPage/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.75374dc1.chunk.js.LICENSE.txt": "/G-Gautam/SecondLookLandingPage/static/js/2.75374dc1.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/G-Gautam/SecondLookLandingPage/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6094a6d3.js",
+    "static/js/2.75374dc1.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.9fa1c34e.chunk.js"
+  ]
+}
