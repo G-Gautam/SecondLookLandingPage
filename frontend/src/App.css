@@ -20,7 +20,6 @@
   background-color: #f3f3f3;
   flex-direction: column;
   justify-content: center;
-  padding-right: 0;
 }
 
 h1, h3{
@@ -182,9 +181,6 @@ h1, h3{
   }
   .container{
     width: 100%;
-  }
-  #main{
-    padding-right: 48px;
   }
   .input-container{
     margin-top: 50px;
