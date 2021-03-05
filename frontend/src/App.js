@@ -3,24 +3,18 @@ import lockImage from './lock.png'
 import realTimeImage from './realtime.png'
 import searchImage from './search.png'
 import warningImage from './warning.png'
-import ReactGA from 'react-ga';
-import { useState } from 'react';
+import firebase from 'firebase';
+import "firebase/performance";
+import { useEffect, useState } from 'react';
 
-function initializeReactGA() {
-    ReactGA.initialize('UA-191469778-1')
-    ReactGA.pageview('/')
-}
 
-function onClick(category, message, setSignup, setLastEmail) {
+function onClick(category, message, setSignup, setLastEmail, emailRef) {
     let res = message.email.split("@");
     if (res.length !== 2) {
         return;
     }
-    ReactGA.event({
-        category: category,
-        action: res[0],
-        label: res[1]
-    })
+    emailRef.push({key: Date.now(), email: message.email});
+
     setSignup(true);
     setLastEmail(message.email)
 }
@@ -30,16 +24,28 @@ function validateEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
+var app = firebase.initializeApp({
+    apiKey: "AIzaSyDZkkA6kBqJhFawZkgWhKrT8eowRoYb-QU",
+    authDomain: "secondlook-97e26.firebaseapp.com",
+    projectId: "secondlook-97e26",
+    storageBucket: "secondlook-97e26.appspot.com",
+    messagingSenderId: "368268452667",
+    appId: "1:368268452667:web:5f7f2c8f8da93f7a9a0d1e",
+    measurementId: "G-515WV6ZHP0"
+})
+
+const analytics = firebase.analytics();
 
 function App() {
     const [email, setEmail] = useState('');
     const [lastEmail, setLastEmail] = useState('blah');
     const [signup, setSignup] = useState(false);
-    initializeReactGA();
+
+    var emailRef = app.database().ref("/signups");
 
     let signupNotification;
 
-    if(signup){
+    if (signup) {
         signupNotification = <h3 className='notification'>You have signed up!</h3>
     }
 
@@ -53,8 +59,8 @@ function App() {
 
                 <div className='input-container'>
                     <div className='input-sub-container'>
-                    <input type='email' className='input' name='email' placeholder='name@example.com' value={email} onChange={(value) => { setEmail(value.target.value)}}></input>
-                    <button disabled={lastEmail === email || email==='' || !validateEmail(email)} className='button' onClick={() => { onClick('SIGNUP', { email }, setSignup, setLastEmail)}}> Sign Up </button>
+                        <input type='email' className='input' name='email' placeholder='name@example.com' value={email} onChange={(value) => { setEmail(value.target.value) }}></input>
+                        <button disabled={lastEmail === email || email === '' || !validateEmail(email)} className='button' onClick={() => { onClick('SIGNUP', { email }, setSignup, setLastEmail, emailRef) }}> Sign Up </button>
                     </div>
                     {signupNotification}
                 </div>
