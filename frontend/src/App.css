@@ -52,8 +52,13 @@ h1, h3{
 .input-container{
   display: flex;
   justify-content: flex-end;
-  margin-top: auto;
   margin: auto 0 50px 0;
+  flex-direction: column;
+}
+
+.input-sub-container{
+  display: flex;
+  justify-content: flex-end;
 }
 
 .input{
@@ -68,6 +73,16 @@ h1, h3{
   font-size: 24px;
 }
 
+.notification{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 1vw;
+  font-style: italic;
+  color: #FF666D;
+  text-align: end;
+  padding-right: 190px;
+}
+
 .button{
   background-color: #FF666D;
   font-family: 'Roboto', sans-serif;
@@ -78,6 +93,10 @@ h1, h3{
   color: white;
   width: 150px;
   margin-left: 40px;
+}
+
+.button:disabled{
+  background-color: #858585;
 }
 
 #second{

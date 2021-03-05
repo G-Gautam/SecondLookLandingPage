@@ -11,15 +11,9 @@ function initializeReactGA() {
     ReactGA.pageview('/')
 }
 
-function onClick(category, message) {
-    console.log(message)
+function onClick(category, message, setSignup, setLastEmail) {
     let res = message.email.split("@");
-    if(res.length !== 2){
-        ReactGA.event({
-            category: category,
-            action: res[0],
-            label: "UNKNOWN"
-        })
+    if (res.length !== 2) {
         return;
     }
     ReactGA.event({
@@ -27,13 +21,28 @@ function onClick(category, message) {
         action: res[0],
         label: res[1]
     })
+    setSignup(true);
+    setLastEmail(message.email)
+}
+
+function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
 }
 
 
 function App() {
-    const[email, setEmail] = useState();
-
+    const [email, setEmail] = useState('');
+    const [lastEmail, setLastEmail] = useState('blah');
+    const [signup, setSignup] = useState(false);
     initializeReactGA();
+
+    let signupNotification;
+
+    if(signup){
+        signupNotification = <h3 className='notification'>You have signed up!</h3>
+    }
+
     return (
         <div className="App">
             <div className="container" id='main'>
@@ -43,8 +52,11 @@ function App() {
                  to guarantee the best health care for you!</h3>
 
                 <div className='input-container'>
-                    <input type='email' className='input' name='email' placeholder='name@example.com' value={email} onChange={(value) => {setEmail(value.target.value)}}></input>
-                    <button className='button' onClick={() => {onClick('SIGNUP', {email})}}> Sign Up </button>
+                    <div className='input-sub-container'>
+                    <input type='email' className='input' name='email' placeholder='name@example.com' value={email} onChange={(value) => { setEmail(value.target.value)}}></input>
+                    <button disabled={lastEmail === email || email==='' || !validateEmail(email)} className='button' onClick={() => { onClick('SIGNUP', { email }, setSignup, setLastEmail)}}> Sign Up </button>
+                    </div>
+                    {signupNotification}
                 </div>
             </div>
             <div className="container" id='second'>
