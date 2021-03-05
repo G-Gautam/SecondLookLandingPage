@@ -3,8 +3,37 @@ import lockImage from './lock.png'
 import realTimeImage from './realtime.png'
 import searchImage from './search.png'
 import warningImage from './warning.png'
+import ReactGA from 'react-ga';
+import { useState } from 'react';
+
+function initializeReactGA() {
+    ReactGA.initialize('UA-191469778-1')
+    ReactGA.pageview('/')
+}
+
+function onClick(category, message) {
+    console.log(message)
+    let res = message.email.split("@");
+    if(res.length !== 2){
+        ReactGA.event({
+            category: category,
+            action: res[0],
+            label: "UNKNOWN"
+        })
+        return;
+    }
+    ReactGA.event({
+        category: category,
+        action: res[0],
+        label: res[1]
+    })
+}
+
 
 function App() {
+    const[email, setEmail] = useState();
+
+    initializeReactGA();
     return (
         <div className="App">
             <div className="container" id='main'>
@@ -14,8 +43,8 @@ function App() {
                  to guarantee the best health care for you!</h3>
 
                 <div className='input-container'>
-                    <input type='email' className='input' name='email' placeholder='name@example.com'></input>
-                    <button className='button'> Sign Up </button>
+                    <input type='email' className='input' name='email' placeholder='name@example.com' value={email} onChange={(value) => {setEmail(value.target.value)}}></input>
+                    <button className='button' onClick={() => {onClick('SIGNUP', {email})}}> Sign Up </button>
                 </div>
             </div>
             <div className="container" id='second'>
