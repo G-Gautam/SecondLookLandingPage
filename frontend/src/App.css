@@ -91,47 +91,62 @@ h1, h3{
 .feature-container{
   display: flex;
   justify-content: flex-end;
-  height: auto;
+  align-items: stretch;
+  height: 9vw;
+  min-height: 170px;
 }
 
-.feature-title-container{
-  background-color: #434343;
-  height: 3em;
-  width: 100%;
+.feature-subcontainer{
   display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: skewX(-15deg);
-  margin-right: -4.5vw;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
   z-index: 1;
+  margin-right: 4vw;
 }
 
 #o{
-  width: 70.5%;
+  width: 65%;
 }
 #s{
-  width: 77%
+  width: 72%
 }
 #t{
-  width: 84%
+  width: 79%
 }
 #f{
-  width: 91%
+  width: 86%
 }
 
 .feature-title{
+  transform: skewX(-15deg);
+  background-color: #434343;
+  align-self: stretch;
   color: white;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: 2em;
   margin: 0 !important;
+  text-align: center;
+  padding: 5px 4vw 5px 0;
+}
+
+.feature-description{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+  color: white;
+  font-size: 1.7em;
+  padding-right: 150px;
+  padding-top: 12px;;
+  text-align: center;
 }
 
 .circle{
+  position: absolute;
   width: 9vw;
   height: 9vw;
-  min-width: 150px;
-  min-height: 150px;
+  min-width: 170px;
+  min-height: 170px;
   background-color: white;
   border-radius: 50%;
   z-index: 2;
