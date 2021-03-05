@@ -104,7 +104,7 @@ h1, h3{
   align-items: flex-end;
   justify-content: flex-start;
   z-index: 1;
-  margin-right: 4vw;
+  margin-right: 5.5vw;
 }
 
 #o{
@@ -144,6 +144,9 @@ h1, h3{
 
 .circle{
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 9vw;
   height: 9vw;
   min-width: 170px;
@@ -151,4 +154,17 @@ h1, h3{
   background-color: white;
   border-radius: 50%;
   z-index: 2;
+}
+.circle-image{
+  width: 7vw;
+  height: 7vw;
+  min-width: 130px;
+  min-height: 130px;
+}
+
+#warning{
+  width: 9vw;
+  height: 9vw;
+  min-width: 170px;
+  min-height: 170px;
 }
