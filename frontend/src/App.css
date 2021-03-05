@@ -70,7 +70,7 @@ h1, h3{
 }
 
 .button{
-  background-color: #FF464F;
+  background-color: #FF666D;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: 20px;
@@ -82,7 +82,7 @@ h1, h3{
 }
 
 #second{
-  background-image: -webkit-linear-gradient(-15deg, #f3f3f3 25%, #FF464F 0%);
+  background-image: -webkit-linear-gradient(-15deg, #f3f3f3 25%, #FF666D 0%);
   align-items: flex-end;
   justify-content: space-around;
   flex-direction: column;
@@ -97,6 +97,8 @@ h1, h3{
 }
 
 .feature-subcontainer{
+  transform: skewX(-15deg);
+  background-image: -webkit-linear-gradient(-90deg, #434343 3.2em, #FF666D 0%);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -119,25 +121,24 @@ h1, h3{
 }
 
 .feature-title{
-  transform: skewX(-15deg);
-  background-color: #434343;
+  transform: skewX(15deg);
   align-self: stretch;
   color: white;
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 2em;
+  font-weight: 400;
+  font-size: 2.2em;
   margin: 0 !important;
   text-align: center;
   padding: 5px 4vw 5px 0;
 }
 
 .feature-description{
+  transform: skewX(15deg);
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
   color: white;
   font-size: 1.7em;
-  padding-right: 150px;
-  padding-top: 12px;;
+  padding: 12px 150px 0 50px;
   text-align: center;
 }
 
@@ -150,13 +151,4 @@ h1, h3{
   background-color: white;
   border-radius: 50%;
   z-index: 2;
-}
-
-
-@media only screen and (max-width: 500px) {
-  .App{
-    min-height: 100vh;
-    height: auto;
-    /* background-image: -webkit-linear-gradient(-95deg, #1F2E35 55%, #FF464F 45%); */
-  }
 }
