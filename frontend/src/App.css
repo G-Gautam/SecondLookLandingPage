@@ -1,10 +1,10 @@
 .App{
   height: 100vh;
   width: 100vw;
-  min-width: 2000px;
-  min-height: 1000px;
+  min-width: 1600px;
+  min-height: 1080px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   align-items: stretch;
   margin:0;
 }
@@ -98,13 +98,13 @@ h1, h3{
 
 .feature-subcontainer{
   transform: skewX(-15deg);
-  background-image: -webkit-linear-gradient(-90deg, #434343 3.2em, #FF666D 0%);
+  background-image: -webkit-linear-gradient(-90deg, #434343 max(2.7vw, 50px), #FF666D 0%);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-start;
   z-index: 1;
-  margin-right: 5.5vw;
+  margin-right: max(5.5vw, 100px);
 }
 
 #o{
@@ -126,7 +126,7 @@ h1, h3{
   color: white;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 2.2em;
+  font-size: max(1.7vw, 28px);
   margin: 0 !important;
   text-align: center;
   padding: 5px 4vw 5px 0;
@@ -137,8 +137,8 @@ h1, h3{
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
   color: white;
-  font-size: 1.7em;
-  padding: 12px 150px 0 50px;
+  font-size: max(1.3vw, 24px);
+  padding: 12px max(6vw,110px) 0 50px;
   text-align: center;
 }
 
@@ -154,12 +154,16 @@ h1, h3{
   background-color: white;
   border-radius: 50%;
   z-index: 2;
+  max-width: 200px;
+  max-height: 200px;
 }
 .circle-image{
   width: 7vw;
   height: 7vw;
   min-width: 130px;
   min-height: 130px;
+  max-width: 200px;
+  max-height: 200px;
 }
 
 #warning{
@@ -167,4 +171,30 @@ h1, h3{
   height: 9vw;
   min-width: 170px;
   min-height: 170px;
+  max-width: 190px;
+  max-height: 190px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .App{
+    flex-direction: column;
+    min-width: 800px;
+  }
+  .container{
+    width: 100%;
+  }
+  #main{
+    padding-right: 48px;
+  }
+  .input-container{
+    margin-top: 50px;
+  }
+
+  #second{
+    padding-bottom: 0;
+  }
+
+  .feature-container{
+    margin-bottom: 50px;
+  }
 }
